@@ -81,14 +81,17 @@ __dirname,
 
 
 
-const PORT =
-process.env.PORT || 3000;
+const express = require('express');
+const app = express();
 
+// Add this route to handle the root URL
+app.get('/', (req, res) => {
+    res.send('Server is up and running!'); 
+});
 
-app.listen(PORT,()=>{
+// Your other routes go here...
 
-console.log(
-"Server running on port "+PORT
-);
-
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
